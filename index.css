@@ -1,12 +1,19 @@
+// @-moz-keyframes spin { 100% { -moz-transform: rotateZ(360deg); } }
+// @-webkit-keyframes spin { 100% { -webkit-transform: rotateZ(360deg); } }
+// @keyframes spin { 100% { -webkit-transform: rotateZ(360deg); transform:rotateZ(360deg); } }
 .base {
 	height: 300px;
 	margin: 50px 0 0 150px;
 }
-.hand {
+#hand {
 	height: 140px;
 	width: 10px;
 	background-color: green;
 	position: absolute;
 	top: 70px;
 	left: 300px;
+	// -webkit-animation:spin 60s linear infinite;
+ //  -moz-animation:spin 60s linear infinite;
+ //  animation:spin 60s linear infinite;
+ //  animation-timing-function: steps(60, end);
 }
