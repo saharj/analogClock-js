@@ -1,26 +1,39 @@
 $(document).ready(function(){
 
-	var longAngle = 0;
+	var dt = new Date();
+	var hour = dt.getHours();
+	var min = dt.getMinutes();
+	var sec = dt.getSeconds();
+
+	if(hour > 12) {
+		hour -= 12;
+	}
+	
+	sec *= 6;
+	min *= 6;
+	hour *= 30;
 
 	setInterval(function(){
-	  longAngle += 6;
+	  sec += 6;
 	  $("#secondHand").rotate({
-		angle: longAngle,
+		angle: sec,
     center: ["50%", "100%"],
     easing: function(x, t, b, c, d) { return b+(t/d)*c ; }
 	});
 	},1000);
 
 	$("#longHand").rotate({
-		angle: 0,
+		angle: min,
 		duration: 3600000,
     center: ["50%", "100%"],
     animateTo: 360,
     easing: function(x, t, b, c, d) { return b+(t/d)*c ; }
 	});
 
+	// ToDo: find the accurate start angle 30/60
+
 	$("#shortHand").rotate({
-		angle: 0,
+		angle: hour,
 		duration: 43200000,
     center: ["50%", "100%"],
     animateTo: 360,
