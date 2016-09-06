@@ -11,7 +11,9 @@ $(document).ready(function(){
 	
 	sec *= 6;
 	min *= 6;
-	hour *= 30;
+	hour = (hour * 30) + (min / 12);
+
+	console.log(hour);
 
 	setInterval(function(){
 	  sec += 6;
@@ -29,8 +31,6 @@ $(document).ready(function(){
     animateTo: 360,
     easing: function(x, t, b, c, d) { return b+(t/d)*c ; }
 	});
-
-	// ToDo: find the accurate start angle 30/60
 
 	$("#shortHand").rotate({
 		angle: hour,
